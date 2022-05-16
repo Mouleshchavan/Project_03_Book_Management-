@@ -22,9 +22,4 @@ router.delete("/books/:bookId",  Middleware.loginCheck,BookController.deleteBook
 router.delete("/books/:bookId/review/:reviewId", ReviewController.deleteReview)
 
 
-
-
-
-
-
 module.exports= router;
