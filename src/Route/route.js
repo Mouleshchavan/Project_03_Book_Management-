@@ -6,6 +6,7 @@ const UserController= require("../controllers/userController")
 const BookController= require("../controllers/bookController")
 const Middleware= require("../middleware/authorization")
 const ReviewController= require("../controllers/reviewController")
+const awsController=require("../controllers/awsController")
 
 router.post("/register",UserController.createUser)
 router.post("/login", UserController.loginUser)
@@ -20,6 +21,6 @@ router.get("/books/:bookId",  Middleware.loginCheck,BookController.getBookDetail
 router.put("/books/:bookId",  Middleware.loginCheck,BookController.updateDetails)//3
 router.delete("/books/:bookId",  Middleware.loginCheck,BookController.deleteBookById)//3
 router.delete("/books/:bookId/review/:reviewId", ReviewController.deleteReview)
-
+router.post("/write-file-aws",awsController.sdk )
 
 module.exports= router;
